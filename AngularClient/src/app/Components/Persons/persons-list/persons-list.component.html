@@ -1,0 +1,32 @@
+<div class="container my-5">
+    <h1 class="mb-3">Persons</h1>
+    <table class="table table-striped" *ngIf="persons && persons.length>=0">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>BirtPlace</th>
+                <th>Province</th>
+                <th>Gender</th>
+                <th>BirthDate</th>
+                <th>TaxCode</th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let person of persons">
+                <td>{{person.id}}</td>
+                <td>{{person.name}}</td>
+                <td>{{person.surname}}</td>
+                <td>{{person.birthPlace}}</td>
+                <td>{{person.province}}</td>
+                <td>{{person.gender}}</td>
+                <td>{{person.birthDate}}</td>
+                <td>{{person.taxCode}}</td>
+                <td><a [routerLink]="['/persons','edit',person.id]">Edit/Delete</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <p *ngIf="!persons || persons.length == 0">No Persons Found!</p>
+</div>

@@ -1,0 +1,53 @@
+<div class="container my-5">
+    <h1 class="mb-3">Add New Person</h1>
+
+    <div class="row">
+        <div class="col-6">
+            <form #form="ngForm" (ngSubmit)="AddPerson()">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="addPerson.name" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="surname" class="form-label">Surname</label>
+                    <input type="text" class="form-control" id="surname" name="surname" [(ngModel)]="addPerson.surname" required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="province" class="form-label">Province</label>
+                    <!-- <input type="text" class="form-control" id="province" name="province" [(ngModel)]="addPerson.province"> -->
+                    <select class="form-control"  id="province" name="province" [(ngModel)]="addPerson.province" (ngModelChange)="onChangeProvince()" required>
+                        <option *ngFor="let province of provinces" [value]="province">{{province}}</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="birthPlace" class="form-label">BirthPlace</label>
+                    <!-- <input type="text" class="form-control" id="birthPlace" name="birthPlace" [(ngModel)]="addPerson.birthPlace"> -->
+                    <select class="form-control"  id="birthPlace" name="birthPlace" [(ngModel)]="addPerson.birthPlace" required>
+                        <option *ngFor="let municipality of municipalities" [value]="municipality">{{municipality}}</option>
+                    </select>
+                </div>
+
+
+                <div class="mb-3">
+                    <label for="gender" class="form-label">Gender</label>
+                    <!-- <input type="text" class="form-control" id="gender" name="gender" [(ngModel)]="addPerson.gender" required> -->
+                    <select class="form-control"  id="gender" name="gender" [(ngModel)]="addPerson.gender" required>
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select>
+                    
+                </div>
+
+                <div class="mb-3">
+                    <label for="birthDate" class="form-label">BirthDate</label>
+                    <input type="date" class="form-control" id="birthDate" name="birthDate" [(ngModel)]="addPerson.birthDate" required>
+                </div>
+            
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+        </div>
+    </div>
+</div>
